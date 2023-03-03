@@ -1,0 +1,411 @@
+ <!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://kit.fontawesome.com/931b05717d.css" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+  <style>
+    /*
+
+queen <i class="fa-solid fa-chess-queen"></i>
+rook <i class="fa-solid fa-chess-rook"></i>
+pawn <i class="fa-solid fa-chess-pawn"></i>
+king <i class="fa-solid fa-chess-king"></i>
+bishop <i class="fa-solid fa-chess-bishop"></i>
+knight <i class="fa-solid fa-chess-knight"></i>
+
+
+
+*/
+    .square {
+      box-shadow: 3px 3px darkcyan;
+
+      border-radius: 15px;
+      text-align: center;
+      width: 44vw;
+      height: 44vw;
+      margin: auto;
+    }
+
+    .fa {
+      text-shadow: 100px;
+      font-size: 3rem;
+    }
+
+
+
+    .tile-container.black {
+      background-color: darkslategray;
+    }
+
+    .tile-container.red {
+      background-color: gray;
+    }
+
+    @media only screen and (min-width:0px) and (max-width: 550px) {
+      .fa {
+        font-size: .75rem;
+      }
+    }
+
+    @media only screen and (min-width:551px) and (max-width: 800px) {
+      .fa {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media only screen and (min-width:801px) and (max-width: 1100px) {
+      .fa {
+        font-size: 1.5rem;
+      }
+    }
+
+    .player1 {
+
+      text-shadow: 2px 2px darkgoldenrod;
+      color: lightsteelblue;
+    }
+
+    .player2 {
+
+      text-shadow: 2px 2px darkcyan;
+
+      color: black;
+    }
+
+    .red {
+      background-color: gray;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 12.5%;
+      width: 12.5%;
+    
+      float: left;
+      padding: 0;
+      margin: auto;
+    }
+
+    .black {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 12.5%;
+      width: 12.5%;
+      
+      float: left;
+      padding: 0;
+      margin: auto;
+    }
+  </style>
+
+  <body>
+
+    <div id="board" class="tile-container square">
+
+
+      <div id="a8" class="tile-container red" style="border-radius: 15px 0px 0px 0px;">
+        <i class="fa fa-chess-rook player1"></i>
+      </div>
+      <div id="b8" class="tile-container black">
+        <i class="fa fa-chess-knight player1"></i>
+      </div>
+      <div id="c8" class="tile-container red">
+        <i class="fa fa-chess-bishop player1"></i>
+      </div>
+      <div id="d8" class="tile-container black">
+        <i class="fa fa-chess-queen player1"></i>
+      </div>
+      <div id="e8" class="tile-container red">
+        <i class="fa fa-chess-king player1"></i>
+      </div>
+      <div id="f8" class="tile-container black">
+        <i class="fa fa-chess-bishop player1"></i>
+      </div>
+      <div id="g8" class="tile-container red">
+        <i class="fa fa-chess-knight player1"></i>
+      </div>
+      <div id="h8" class="tile-container black" style="border-radius: 0px 15px 0px 0px;">
+        <i class="fa fa-chess-rook player1"></i>
+      </div>
+
+      <div id="a7" class="tile-container black">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+      <div id="b7" class="tile-container red">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+      <div id="c7" class="tile-container black">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+      <div id="d7" class="tile-container red">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+      <div id="e7" class="tile-container black">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+      <div id="f7" class="tile-container red">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+      <div id="g7" class="tile-container black">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+      <div id="h7" class="tile-container red">
+        <i class="fa fa-chess-pawn player1"></i>
+      </div>
+
+      <div id="a6" class="tile-container red"><i class=""></i></div>
+      <div id="b6" class="tile-container black"><i class=""></i></div>
+      <div id="c6" class="tile-container red"><i class=""></i></div>
+      <div id="d6" class="tile-container black"><i class=""></i></div>
+      <div id="e6" class="tile-container red"><i class=""></i></div>
+      <div id="f6" class="tile-container black"><i class=""></i></div>
+      <div id="g6" class="tile-container red"><i class=""></i></div>
+      <div id="h6" class="tile-container black"><i class=""></i></div>
+
+      <div id="a5" class="tile-container black"><i class=""></i></div>
+      <div id="b5" class="tile-container red"><i class=""></i></div>
+      <div id="c5" class="tile-container black"><i class=""></i></div>
+      <div id="d5" class="tile-container red"><i class=""></i></div>
+      <div id="e5" class="tile-container black"><i class=""></i></div>
+      <div id="f5" class="tile-container red"><i class=""></i></div>
+      <div id="g5" class="tile-container black"><i class=""></i></div>
+      <div id="h5" class="tile-container red"><i class=""></i></div>
+
+      <div id="a4" class="tile-container red"><i class=""></i></div>
+      <div id="b4" class="tile-container black"><i class=""></i></div>
+      <div id="c4" class="tile-container red"><i class=""></i></div>
+      <div id="d4" class="tile-container black"><i class=""></i></div>
+      <div id="e4" class="tile-container red"><i class=""></i></div>
+      <div id="f4" class="tile-container black"><i class=""></i></div>
+      <div id="g4" class="tile-container red"><i class=""></i></div>
+      <div id="h4" class="tile-container black"><i class=""></i></div>
+
+      <div id="a3" class="tile-container black"><i class=""></i></div>
+      <div id="b3" class="tile-container red"><i class=""></i></div>
+      <div id="c3" class="tile-container black"><i class=""></i></div>
+      <div id="d3" class="tile-container red"><i class=""></i></div>
+      <div id="e3" class="tile-container black"><i class=""></i></div>
+      <div id="f3" class="tile-container red"><i class=""></i></div>
+      <div id="g3" class="tile-container black"><i class=""></i></div>
+      <div id="h3" class="tile-container red">        <i class=""></i>
+      </div>
+
+      <div id="a2" class="tile-container red">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+      <div id="b2" class="tile-container black">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+      <div id="c2" class="tile-container red">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+      <div id="d2" class="tile-container black">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+      <div id="e2" class="tile-container red">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+      <div id="f2" class="tile-container black">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+      <div id="g2" class="tile-container red">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+      <div id="h2" class="tile-container black">
+        <i class="fa fa-chess-pawn player2"></i>
+      </div>
+
+
+      <div id="a1" class="tile-container black" style="border-radius: 0px 0px 0px  15px;">
+        <i class="fa fa-chess-rook player2"></i>
+      </div>
+      <div id="b1" class="tile-container red">
+        <i class=" player2 fa fa-chess-knight"></i>
+      </div>
+      <div id="c1" class="tile-container black">
+        <i class="fa fa-chess-bishop player2"></i>
+      </div>
+      <div id="d1" class="tile-container red">
+        <i class="fa fa-chess-queen player2"></i>
+      </div>
+      <div id="e1" class="tile-container black">
+        <i class="fa fa-chess-king player2"></i>
+      </div>
+      <div id="f1" class="tile-container red">
+        <i class="fa fa-chess-bishop player2"></i>
+      </div>
+      <div id="g1" class="tile-container black">
+        <i class="fa fa-chess-knight player2"></i>
+      </div>
+      <div id="h1" style="border-radius: 0px 0px 15px 0px;" class="tile-container red">
+        <i id="test" class="fa fa-chess-rook player2"></i>
+      </div>
+
+
+
+
+
+    </div>
+
+    <label for="Board">Choose a color:</label>
+    <select style="color:white ; background-color:royalblue ;" aria-placeholder="Board color" name="Board" id="Board">
+      <option style="color:white;" value="" disabled selected>Select Your Color</option>
+
+      <option value="Yellow/Rose">Yellow/Rose</option>
+      <option value="Brown">Brown</option>
+      <option value="Green">Green</option>
+
+    </select>
+
+    <script>
+
+      let pieces = ["fa-chess-queen", "fa-chess-rook", "fa-chess-pawn", "fa-chess-king", "fa-chess-bishop", "fa-chess-knight"]
+
+
+      // #F0F2A6 #aa6373 Yellow/Rose #753742 d8bd8a Brown #4C956C #FEFEE3 Green
+
+
+      let selectedpiece = null;
+      const board = document.getElementById("board");
+
+// Add a drag event listener to the chessboard element
+board.addEventListener("dragstart", function(event) {
+  // Check if the element being dragged has an id of "board"
+  if (event.target.id === "board") {
+    // Prevent the default behavior of the drag event
+    event.preventDefault();
+  }
+});
+      const tileContainer = document.querySelector('.tile-container');
+
+      tileContainer.addEventListener('click', function (event) {
+        if (selectedpiece == null) {
+
+          //add bounce
+
+          //if we clicked directly on the div/square 
+          if (event.target.tagName == "DIV") {
+
+            if (event.target.firstElementChild) {
+
+              event.target.firstElementChild.classList.add('fa-bounce')
+              selectedpiece = event.target.closest('.tile-container').id;
+
+            }
+
+
+
+
+          }
+          //if we clicked directly on the i element/icon
+          else {
+            if (event.target.closest('.tile-container').firstElementChild) {
+              event.target.classList.add('fa-bounce')
+              selectedpiece = event.target.closest('.tile-container').id;
+            }
+
+          }
+
+
+        }
+
+
+
+        //if piece is already selected the tile we clicked on now is the tile we want to go to
+        else {
+          let tilee;
+          console.log(selectedpiece)
+          if (event.target.closest('.tile-container').firstElementChild) {
+            tilee = event.target.closest('.tile-container').firstElementChild
+          }
+
+
+          console.log(event.target.closest('.tile-container'))
+          console.log(document.getElementById(selectedpiece).firstElementChild)
+
+          document.getElementById(selectedpiece).firstElementChild.classList.remove("fa-bounce")
+
+          event.target.closest('.tile-container').appendChild(document.getElementById(selectedpiece).firstElementChild)
+
+
+          if (event.target.closest('.tile-container').childElementCount == 2) {
+
+            event.target.closest('.tile-container').removeChild(tilee)
+          }
+
+
+
+          selectedpiece = null;
+        }
+
+      }
+
+
+
+      );
+
+
+      //console.log(document.querySelectorAll('#a1 > i')[0].className);
+
+
+      const redTiles = document.querySelectorAll('.red');
+      const blackTiles = document.querySelectorAll('.black');
+
+      const selectBoard = document.getElementById('Board');
+
+      selectBoard.addEventListener('change', function () {
+        switch (selectBoard.value) {
+          case "Red/Yellow":
+            for (let i = 0; i < redTiles.length; i++) {
+              redTiles[i].style.backgroundColor = "goldenrod";
+            }
+            for (let i = 0; i < blackTiles.length; i++) {
+              blackTiles[i].style.backgroundColor = "firebrick";
+            }
+            break;
+          case "Yellow/Rose":
+            for (let i = 0; i < redTiles.length; i++) {
+              redTiles[i].style.backgroundColor = "#F0F2A6";
+            }
+            for (let i = 0; i < blackTiles.length; i++) {
+              blackTiles[i].style.backgroundColor = "#aa6373";
+            }
+            break;
+          case "Brown":
+            for (let i = 0; i < redTiles.length; i++) {
+              redTiles[i].style.backgroundColor = "#d8bd8a";
+            }
+            for (let i = 0; i < blackTiles.length; i++) {
+              blackTiles[i].style.backgroundColor = "#753742";
+            }
+            break;
+          case "Green":
+            for (let i = 0; i < redTiles.length; i++) {
+              redTiles[i].style.backgroundColor = "#FEFEE3";
+            }
+            for (let i = 0; i < blackTiles.length; i++) {
+              blackTiles[i].style.backgroundColor = "#4C956C";
+            }
+            break;
+        }
+      });
+
+    </script><script src="https://kit.fontawesome.com/931b05717d.js" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
